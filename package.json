@@ -1,0 +1,25 @@
+{
+  "name": "dynamic-api-exercises",
+  "version": "1.0.0",
+  "description": "A dynamic API service support custom your response fields, filter, sorting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max9159/dynamic-api-exercises.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max9159/dynamic-api-exercises/issues"
+  },
+  "homepage": "https://github.com/max9159/dynamic-api-exercises#readme",
+  "dependencies": {
+    "apollo-server": "^3.10.1",
+    "express": "^4.18.1",
+    "graphql": "^16.6.0"
+  }
+}
