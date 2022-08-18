@@ -16,8 +16,14 @@ const typeDefs = gql`
     additionalComments: String
   }
 
+  input Filter {
+    jobTitle: String
+    annualBasePay_gte: String
+    annualBasePay_lte: String
+  }
+
   type Query {
-    salaries(jobTitle: String): [Salary!]!
+    salaries(filter: Filter!): [Salary!]!
   }
 
 `

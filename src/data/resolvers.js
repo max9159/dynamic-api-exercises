@@ -19,8 +19,16 @@ const resolvers = {
 
   Query: {
     salaries: (parent, args) => {
-      return salaries.filter((s) => s.JobTitle.toLowerCase().indexOf(args.jobTitle.toLowerCase()) !== -1);
-    }
+      let results = [];
+      if (args.filter.jobTitle)
+        results = salaries.filter((s) => s.JobTitle.toLowerCase().indexOf(args.filter.jobTitle.toLowerCase()) !== -1);
+      if (args.filter.annualBasePay_gte)
+        results = salaries.filter((s) => s.AnnualBasePay >= args.filter.annualBasePay_gte);
+      if (args.filter.annualBasePay_lte)
+        results = salaries.filter((s) => s.AnnualBasePay <= args.filter.annualBasePay_lte);
+
+      return results;
+    },
   }
 
 }
