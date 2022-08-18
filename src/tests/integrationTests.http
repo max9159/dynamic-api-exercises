@@ -1,0 +1,8 @@
+### Filter jobTitle contains "Engineer"
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle}}&variables={"filter":{"jobTitle":"Engineer"}}
+
+### Filter jobTitle contains "Engineer" and annualBasePay grater than 125000
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":"125000"}}
+
+### Filter annualBasePay less than 125000
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":"125000"}}
