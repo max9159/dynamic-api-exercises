@@ -1,8 +1,14 @@
+### Sort annualBasePay ASC and filter jobTitle contains "Engineer" grater than 1
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":1},"sort":{"annualBasePay":"ASC"}}
+
+### Sort annualBasePay DESC and filter jobTitle contains "Engineer"
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer"},"sort":{"annualBasePay":"DESC"}}
+
 ### Filter jobTitle contains "Engineer"
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle}}&variables={"filter":{"jobTitle":"Engineer"}}
 
 ### Filter jobTitle contains "Engineer" and annualBasePay grater than 125000
-GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":"125000"}}
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":125000}}
 
 ### Filter annualBasePay less than 125000
-GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":"125000"}}
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":125000}}
