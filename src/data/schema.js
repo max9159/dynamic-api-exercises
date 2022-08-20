@@ -8,22 +8,31 @@ const typeDefs = gql`
     jobTitle: String
     yearsatEmployer: String
     yearsofExperience: String
-    annualBasePay: String
-    signingBonus: String
-    annualBonus: String
+    annualBasePay: Float
+    signingBonus: Float
+    annualBonus: Float
     annualStockValueBonus: String
     gender: String
     additionalComments: String
   }
 
+  enum SortMethods {
+    ASC,
+    DESC
+  }
+
   input Filter {
     jobTitle: String
-    annualBasePay_gte: String
-    annualBasePay_lte: String
+    annualBasePay_gte: Float
+    annualBasePay_lte: Float
+  }
+
+  input Sort {
+    annualBasePay : SortMethods
   }
 
   type Query {
-    salaries(filter: Filter!): [Salary!]!
+    salaries(filter: Filter!, sort: Sort): [Salary!]!
   }
 
 `
