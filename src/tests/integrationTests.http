@@ -10,7 +10,7 @@ GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){s
 # e.g. new Date("11/10/2019 13:16:12+0000").getTime() = 1573391772000
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","timestamp_gte":"1573391772000"},"sort":{"timestamp":"ASC"}}
 
-### Salaries API: Sort annualBasePay DESC and filter annualBasePay less than -1
+### Salaries API: Sort annualBasePay DESC and filter annualBasePay less than 0
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_lte":0},"sort":{"annualBasePay":"DESC"}}
 
 ### Salaries API: Sort annualBasePay ASC and filter jobTitle contains "Engineer" grater than 1
@@ -25,5 +25,5 @@ GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(fil
 ### Salaries API: Filter jobTitle contains "Engineer" and annualBasePay grater than 125000
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":125000}}
 
-### Salaries API: Filter annualBasePay less than 125000
+### Salaries API: Filter annualBasePay less than 0
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":0}}
