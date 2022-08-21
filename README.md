@@ -39,3 +39,9 @@ npm start
     - Need to use the new Date().getTime() in javascript.
 - Sort
   - &variables={"filter":{"jobTitle":"Engineer","timestamp_lte":"1458566204000"},**"sort":{"timestamp":"DESC"**}}
+
+## Preview
+- Run server and send GET Request via HTTP Client Extension.
+![StartServerAndInvokeAPI](./src/preview/StartServerAndInvokeAPI.png)
+- Use GET API with Chrome.
+![InvokeAPIwithChrome](./src/preview/InvokeAPIwithChrome.png)
