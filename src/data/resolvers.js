@@ -22,8 +22,13 @@ const resolvers = {
     salaries: (parent, args) => {
       const store = new StoreService();
       const salaryService = new SalaryService(store);
-      return salaryService.get(args.filter, args.sort);
+      return salaryService.getSalaries(args.filter, args.sort);
     },
+    salary: (parent, args) => {
+      const store = new StoreService();
+      const salaryService = new SalaryService(store);
+      return salaryService.getSalary(args.filter, args.sort);
+    }
   }
 
 }

@@ -12,7 +12,12 @@ class SalaryService {
     return s.match(r) === null ? 0 : Number(s.match(r)[0]);
   }
 
-  get(filter, sort) {
+  getSalary(filter, sort) {
+    const results = this.getSalaries(filter, sort);
+    return results && results.length > 0 ? results[0] : [];
+  }
+
+  getSalaries(filter, sort) {
     const salaries = this._store.getSalaries();
     let results = [];
 

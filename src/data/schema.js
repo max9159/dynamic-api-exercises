@@ -36,6 +36,7 @@ const typeDefs = gql`
 
   type Query {
     salaries(filter: Filter!, sort: Sort): [Salary!]!
+    salary(filter: Filter!, sort: Sort): Salary!
   }
 
 `
