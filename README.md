@@ -2,6 +2,7 @@
 
 ## Abstract
 > A dynamic API service supports custom response fields, filter, and sorting and is written in GraphQL and NodeJS.
+> Due to the short schedule, I choose to implement it on the application directly without DataBase(another dependency) to quickly finish the PoC.
 
 ## Installation
 - Ensure you have install NodeJS.
