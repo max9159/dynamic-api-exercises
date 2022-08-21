@@ -15,7 +15,6 @@ npm install
 ```bash
 npm start
 ```
-- Open http://localhost:9090/api/salaries
 
-### API Integration Testing
-- You can use GUI for GraphQL for **GET** API call can refer to this http file [integrationTests.http](./src/tests/integrationTests.http) to do API Testing.
+## API Testing Example
+- You can refer to this http file [integrationTests.http](./src/tests/integrationTests.http) to do API Testing.

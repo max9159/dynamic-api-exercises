@@ -3,7 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const {
   ApolloServerPluginDrainHttpServer,
-  ApolloServerPluginLandingPageLocalDefault
+  ApolloServerPluginLandingPageDisabled
 } = require('apollo-server-core');
 const { typeDefs } = require('./data/schema');
 const { resolvers } = require('./data/resolvers');
@@ -19,7 +19,7 @@ async function startApolloServer() {
     typeDefs,
     plugins: [
       ApolloServerPluginDrainHttpServer({ httpServer }),
-      ApolloServerPluginLandingPageLocalDefault({ embed: true }),
+      ApolloServerPluginLandingPageDisabled(),
     ],
   });
   await server.start();
