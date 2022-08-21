@@ -9,7 +9,8 @@ class SalaryService {
   extractNumber(str) {
     var r = /\d+.\d+/;
     var s = str.replace(',', '');
-    return s.match(r) === null ? 0 : Number(s.match(r)[0]);
+    var s = s.match(r) === null ? 0 : Number(s.match(r)[0])
+    return isNaN(s) ? 0 : s;
   }
 
   getSalary(filter, sort) {
@@ -41,6 +42,11 @@ class SalaryService {
       results.push(newData);
     });
 
+    results.forEach(r => {
+      if (isNaN(r.annualBasePay)) {
+        console.log('nan:' + r.annualBasePay);
+      }
+    })
     // filter (Support fields needs to define at schema.js)
     if (filter) {
       if (filter.timestamp_gte !== undefined)
