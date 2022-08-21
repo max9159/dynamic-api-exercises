@@ -21,6 +21,7 @@ class SalaryService {
     salaries.forEach(element => {
       let newData = {};
       newData['timestamp'] = element.Timestamp;
+      newData['timestamp_utc'] = new Date(element.Timestamp + "+0000").getTime();
       newData['employer'] = element.Employer;
       newData['location'] = element.Location;
       newData['jobTitle'] = element.JobTitle;
@@ -37,6 +38,10 @@ class SalaryService {
 
     // filter (Support fields needs to define at schema.js)
     if (filter) {
+      if (filter.timestamp_gte !== undefined)
+        results = results.filter((s) => s.timestamp_utc >= filter.timestamp_gte);
+      if (filter.timestamp_lte !== undefined)
+        results = results.filter((s) => s.timestamp_utc <= filter.timestamp_lte);
       if (filter.jobTitle !== undefined)
         results = results.filter((s) => s.jobTitle.toLowerCase().indexOf(filter.jobTitle.toLowerCase()) !== -1);
       if (filter.annualBasePay_gte !== undefined)
@@ -49,10 +54,11 @@ class SalaryService {
     if (sort) {
       Object.keys(sort)
         .forEach((s) => {
+          const sortCol = s === 'timestamp' ? 'timestamp_utc' : s;
           if (sort[s] === 'ASC')
-            results.sort((a, b) => a[s] - b[s]);
+            results.sort((a, b) => a[sortCol] - b[sortCol]);
           else
-            results.sort((a, b) => b[s] - a[s]);
+            results.sort((a, b) => b[sortCol] - a[sortCol]);
         })
     }
 

@@ -1,3 +1,14 @@
+### Sort timestamp DESC and filter timestamp less than 3/21/2016 13:16:44+0000
+### new Date("3/21/2016 13:16:44+0000").getTime() = 1458566204000
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","timestamp_lte":"1458566204000"},"sort":{"timestamp":"DESC"}}
+
+### Sort timestamp ASC and filter timestamp grater than 11/10/2019 13:16:12+0000
+# new Date("11/10/2019 13:16:12+0000").getTime() = 1573391772000
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","timestamp_gte":"1573391772000"},"sort":{"timestamp":"ASC"}}
+
+### Sort annualBasePay DESC and filter annualBasePay less than -1
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_lte":0},"sort":{"annualBasePay":"DESC"}}
+
 ### Sort annualBasePay ASC and filter jobTitle contains "Engineer" grater than 1
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!,$sort:Sort){salaries(filter:$filter,sort:$sort){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":1},"sort":{"annualBasePay":"ASC"}}
 
@@ -11,4 +22,4 @@ GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(fil
 GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"jobTitle":"Engineer","annualBasePay_gte":125000}}
 
 ### Filter annualBasePay less than 125000
-GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":125000}}
+GET http://localhost:9090/api/salaries?query=query($filter:Filter!){salaries(filter:$filter){timestamp,jobTitle,annualBasePay}}&variables={"filter":{"annualBasePay_lte":0}}

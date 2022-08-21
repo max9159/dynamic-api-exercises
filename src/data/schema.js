@@ -22,12 +22,15 @@ const typeDefs = gql`
   }
 
   input Filter {
+    timestamp_gte: String
+    timestamp_lte: String
     jobTitle: String
     annualBasePay_gte: Float
     annualBasePay_lte: Float
   }
 
   input Sort {
+    timestamp: SortMethods
     annualBasePay : SortMethods
   }
 
